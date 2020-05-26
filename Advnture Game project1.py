@@ -1,139 +1,74 @@
-import time 
+import random
+import time
 
-answer_A = ["A", "a"]
-answer_B = ["B", "b"]
-answer_C = ["C", "c"]
-yes = ["Y", "y", "yes"]
-no = ["N", "n", "no"]
+def printlate(message1):
+    print(message1)
+    time.sleep(2.1)
 
-sword = 0
-flower = 0
 
-required = ("\nUse only A, B, or C\n") 
+def bluedoor(option,weapon):
+    printlate("you have chosen first door\n\n")
+    printlate("You chose to go through the blue door.There is a dark, long floor. \n\nSuddenly, you hear a sound from a room at the end of it.\n\n")
+    printlate("There is  "+option+"  in the room.\n\nPress 1 to take it or press2 to leave it")
+    while True:
+        chosen=input("Enter any of the abovne")
+        if chosen=="1":
+            printlate("now you have internet connection in it ")
+            printlate("You opned the google maps and searched where you are and you made a phonecall to your friend and pollice and he came to you to help and you got saved\n\n")
+        elif chosen=="2":
+            printlate('you refused to take it and you have no chance to escape\n\n')
+            printlate("you hav waited there and there is no food.You starved for 30days and you died\n\n")
+        playagain()
 
-def intro():
-  print ("After a drunken night out with friends, you awaken the "
-  "next morning in a thick, dank forest. Head spinning and " 
-  "fighting the urge to vomit, you stand and marvel at your new, "
-  "unfamiliar setting. The peace quickly fades when you hear a "
-  "grotesque sound emitting behind you. A slobbering orc is "
-  "running towards you. You will:")
-  time.sleep(1)
-  print ("""  A. Grab a nearby rock and throw it at the orc
-  B. Lie down and wait to be mauled
-  C. Run""")
-  choice = input(">>> ")
-  if choice in answer_A:
-    option_rock()
-  elif choice in answer_B:
-    print ("\nWelp, that was quick. "
-    "\n\nYou died!")
-  elif choice in answer_C:
-    option_run()
-  else:
-    print (required)
-    intro()
 
-def option_rock(): 
-  print ("\nThe orc is stunned, but regains control. He begins "
-  "running towards you again. Will you:")
-  time.sleep(1)
-  print ("""  A. Run
-  B. Throw another rock
-  C. Run towards a nearby cave""")
-  choice = input(">>> ")
-  if choice in answer_A:
-    option_run()
-  elif choice in answer_B:
-    print ("\nYou decided to throw another rock, as if the first " 
-    "rock thrown did much damage. The rock flew well over the "
-    "orcs head. You missed. \n\nYou died!")
-  elif choice in answer_C:
-    option_cave()
-  else:
-    print (required)
-    option_rock()
+def reddoor(weapon,option):
+    printlate("you have chosen reddoor\n\n")
+    printlate("You chose to go through the blue door.There are criminals in that door who kidnaped you\n\n")
+    printlate("There is  "+weapon+"  in the room.Press 1 to take it or press2 to leave it\n\n")
+    while True:
+        life=input(" Choose any of the above\n\n")
+        if life=="1":
+            printlate("you have"+weapon+"in your hand now\n\n")
+            printlate("now you can save yourlife by killing them all\n\n")
+            printlate("you shot them with"+weapon+"you saved your life\n\n")
+        elif life=="2":
+            printlate("You refused to taake it since you dont know how to fire\n\n")
+            printlate("criminals have seen you and you have now weapon in your hand\n\n")
+            printlate("slowly they came to you and killed you\n\n")
+    playagain()
 
-def option_cave():
-  print ("\nYou were hesitant, since the cave was dark and "
-  "ominous. Before you fully enter, you notice a shiny sword on "
-  "the ground. Do you pick up a sword. Y/N?")
-  choice = input(">>> ")
-  if choice in yes:
-    sword = 1
-  else:
-    sword = 0
-  print ("\nWhat do you do next?")
-  time.sleep(1)
-  print ("""  A. Hide in silence
-  B. Fight
-  C. Run""")
-  choice = input(">>> ")
-  if choice in answer_A:
-    print ("\nReally? You're going to hide in the dark? I think "
-    "orcs can see very well in the dark, right? Not sure, but "
-    "I'm going with YES, so...\n\nYou died!")
-  elif choice in answer_B:
-   if sword > 0:
-    print ("\nYou laid in wait. The shimmering sword attracted "
-    "the orc, which thought you were no match. As he walked "
-    "closer and closer, your heart beat rapidly. As the orc "
-    "reached out to grab the sword, you pierced the blade into "
-    "its chest. \n\nYou survived!")
-   else: #If the user didn't grab the sword
-     print ("\nYou should have picked up that sword. You're "
-     "defenseless. \n\nYou died!")
-  elif choice in answer_C:
-    print ("As the orc enters the dark cave, you sliently "
-    "sneak out. You're several feet away, but the orc turns "
-    "around and sees you running.")
-    option_run()
-  else:
-    print (required)
-    option_cave()
 
-def option_run():
-  print ("\nYou run as quickly as possible, but the orc's "
-  "speed is too great. You will:")
-  time.sleep(1)
-  print ("""  A. Hide behind boulder
-  B. Trapped, so you fight
-  C. Run towards an abandoned town""")
-  choice = input(">>> ")
-  if choice in answer_A:
-    print ("You're easily spotted. "
-    "\n\nYou died!")
-  elif choice in answer_B:
-    print ("\nYou're no match for an orc. "
-    "\n\nYou died!")
-  elif choice in answer_C:
-    option_town()
-  else:
-    print (required)
-    option_run()
-    
-def option_town():
-  print ("\nWhile frantically running, you notice a rusted "
-  "sword lying in the mud. You quickly reach down and grab it, "
-  "but miss. You try to calm your heavy breathing as you hide "
-  "behind a delapitated building, waiting for the orc to come "
-  "charging around the corner. You notice a purple flower "
-  "near your foot. Do you pick it up? Y/N")
-  choice = input(">>> ")
-  if choice in yes:
-    flower = 1
-  else:
-    flower = 0
-  print ("You hear its heavy footsteps and ready yourself for "
-  "the impending orc.")
-  time.sleep(1)
-  if flower > 0:
-    print ("\nYou quickly hold out the purple flower, somehow "
-    "hoping it will stop the orc. It does! The orc was looking "
-    "for love. "
-    "\n\nThis got weird, but you survived!")
-  else:
-     print ("\nMaybe you should have picked up the flower. "
-     "\n\nYou died!")
+def playagain():
+    printlate("do you want to play again\n\n")
+    while True:
+        agg=input("press1 to play again or press 2 to leave\n\n")
+        if agg=="1":
+            introduction()
+        elif agg=="2":
+            printlate("thankyou for playing\n\n")
+        else:
+            playagain()
 
-intro()
+
+
+
+def introduction():
+    printlate("What did just happen?\n\n")
+
+    printlate("Somehow, your memory of the last few hours seems to be a little blurry, and you can\'t remember how you ended up here. You take a look around, but don\'t recognize anything. You seem to be inside some form of patio, with nowhere to go.\n\n")
+
+    printlate("But wait.In front of you, there are two doors, the left one is blue, the right one is red. You seem to feel like you're hearing a sound from inside the red door. What should you do?You can either go through the blue door, or the red door.There coud be anything in the doors. What do you want to do?\n\n")
+
+    option=random.choice(["mobile","laptop",'iPHONE'"satellite mobile"])
+    weapon=random.choice(["shotgun","pistol","m67"])
+
+    while True:
+            its_time=input("press 1 to chose blue door or press 2 to chose reddoor\n\n")
+            if its_time=="1":
+                bluedoor(option,weapon)
+                break
+            elif its_time=="2":
+                reddoor(option,weapon)
+                break
+
+introduction()
